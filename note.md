@@ -154,5 +154,13 @@ function x() {}
     -   Mocks: preprogrammed with expectations
 
 -   Mocks: most used, most debated
+
     -   The way we use them greatly influences the way we write tests
     -   If we need to use them too much, there is something wrong with our code
+
+-   Spies vs. Mocks
+
+    -   spies are not directly injected into SUT
+    -   original functionality is preserved with spies
+    -   spies usually track method calls
+    -   usually use with classes or modules rather than function alone
