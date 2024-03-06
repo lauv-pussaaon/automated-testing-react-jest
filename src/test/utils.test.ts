@@ -1,6 +1,43 @@
-import { getStringInfo, toUpperCase } from "../app/utils";
+import { getStringInfo, toUpperCase, StringUtils } from "../app/utils";
 
 describe("utils test suite", () => {
+    describe.only("StringUtils tests", () => {
+        let sut: StringUtils;
+
+        beforeEach(() => {
+            sut = new StringUtils();
+            console.log("Setup");
+        });
+
+        afterEach(() => {
+            console.log("Teardown");
+        });
+
+        it("should return correct upperCase", () => {
+            const actual = sut.toUpperCase("abc");
+
+            expect(actual).toBe("ABC");
+            console.log("Actual test");
+        });
+
+        it("should throw error on invalid argument", () => {
+            expect(() => {
+                sut.toUpperCase("");
+            }).toThrow("Invalid argument!");
+        });
+
+        it("should throw error on invalid argument inside try catch", (done) => {
+            try {
+                sut.toUpperCase("");
+                done("GetStringInfo should throw error for invalid arg!");
+            } catch (error) {
+                expect(error).toBeInstanceOf(Error);
+                expect(error).toHaveProperty("message", "Invalid argument!");
+                done();
+            }
+        });
+    });
+
     it("should return uppercase", () => {
         // arrange system
         const sut = toUpperCase;
@@ -13,7 +50,7 @@ describe("utils test suite", () => {
         expect(actual).toBe("ABC");
     });
 
-    describe.only("ToUpperCase examples", () => {
+    describe("ToUpperCase examples", () => {
         it.each([
             { input: "abc", expected: "ABC" },
             { input: "My-String", expected: "MY-STRING" },
@@ -56,7 +93,6 @@ describe("utils test suite", () => {
             const actual = getStringInfo("My-String");
             expect(actual.extraInfo).toBeDefined();
         });
-
         test("return correct extraInfo object", () => {
             const actual = getStringInfo("My-String");
             expect(actual.extraInfo).toEqual({});
