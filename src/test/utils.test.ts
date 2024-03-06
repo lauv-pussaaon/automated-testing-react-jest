@@ -1,7 +1,7 @@
 import { getStringInfo, toUpperCase, StringUtils } from "../app/utils";
 
 describe("utils test suite", () => {
-    describe.only("StringUtils tests", () => {
+    describe("StringUtils tests", () => {
         let sut: StringUtils;
 
         beforeEach(() => {
@@ -15,9 +15,7 @@ describe("utils test suite", () => {
 
         it("should return correct upperCase", () => {
             const actual = sut.toUpperCase("abc");
-
             expect(actual).toBe("ABC");
-            console.log("Actual test");
         });
 
         it("should throw error on invalid argument", () => {
