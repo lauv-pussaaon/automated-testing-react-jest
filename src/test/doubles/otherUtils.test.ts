@@ -69,7 +69,7 @@ describe.skip("OtherUtils test suite", () => {
         });
     });
 
-    describe("toUpperCaseWithCallback test suite", () => {
+    describe("toUpperCaseWithCallback test fake function", () => {
         it("calls callback for invalid arg", () => {
             const actual = toUpperCaseWithCallback("", () => {});
             expect(actual).toBe("");
