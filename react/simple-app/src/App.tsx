@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LoginService from "./services/LoginService";
-import LoginForm from "./ui/components/Login";
+import LoginForm from "./ui/components/LoginForm";
 
 function App() {
     const loginService = new LoginService();

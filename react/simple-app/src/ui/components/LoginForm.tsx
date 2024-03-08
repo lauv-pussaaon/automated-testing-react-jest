@@ -33,25 +33,25 @@ function LoginForm({ loginService, setToken }: LoginProps) {
     }
 
     return (
-        <div role="main">
+        <div role="main" data-testid="login-form">
             <h2>Please login</h2>
             <form onSubmit={(e) => handleSubmit(e)}>
                 <label>User name</label>
                 <input
-                    data-testid="input"
+                    data-testid="input-username"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                 />
                 <br />
                 <label>Password</label>
                 <input
-                    data-testid="input"
+                    data-testid="input-password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     type="password"
                 />
                 <br />
-                <input data-testid="input" type="submit" value="Login" />
+                <input data-testid="input-submit" type="submit" value="Login" />
             </form>
             <br />
             {renderLoginResult()}
